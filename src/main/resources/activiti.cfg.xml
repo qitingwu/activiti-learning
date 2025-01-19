@@ -11,10 +11,19 @@
 
         <property name="databaseSchemaUpdate" value="true" />
 
-        <property name="asyncExecutorActivate" value="false" />
+        <property name="asyncExecutorActivate" value="true" />
 
         <property name="mailServerHost" value="mail.my-corp.com" />
         <property name="mailServerPort" value="5025" />
+
+    </bean>
+
+    <bean id="threadFactory" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:jboss/ee/concurrency/factory/default" />
+    </bean>
+
+    <bean id="customJobExecutor" class="org.activiti.engine.impl.jobexecutor.ManagedAsyncJobExecutor">
+        <property name="threadFactory" ref="threadFactory" />
     </bean>
 
 </beans>
