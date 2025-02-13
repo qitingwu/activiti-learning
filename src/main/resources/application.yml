@@ -12,3 +12,13 @@ spring:
       path: /h2-console
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+#todo： section 3.16
+#log4j:
+#  appender:
+#    consoleAppender:
+#      layout:
+#        ConversionPattern:
+#          ProcessDefinitionId: %X{mdcProcessDefinitionID}
+#          executionId: %X{mdcExecutionId}
+#          mdcProcessInstanceID: %X{mdcProcessInstanceID}
+#          mdcBusinessKey: %X{mdcBusinessKey} %m%n
